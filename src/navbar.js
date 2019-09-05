@@ -33,9 +33,10 @@ const Menu = (props) => (
         right: 50px;
         margin: 5px;
         padding: 3px;
-        color: white;
         display: none;
         font-family: 'Lato', sans-serif;
+
+        transition: 0.1s;
         &.change {
             display: block;
         }
@@ -91,23 +92,42 @@ export default class Navbar extends React.Component {
                 <header>
                     <div className="navbar" css={css`
                         width: 75%;
-                        margin: auto;
+                        margin: 5px auto 0 auto;
                         height: 50px;
                         display: flex;
                         &:hover {
-                            background-color: rgba(0,0,0,0.25);
+                            background-color: rgba(0,0,0,0.65);
+                            & .navmenu div {
+                                background-color: white;
+                            }
+                            & a {
+                                color: white;
+                            }
+                            & li a {
+                                // expanded menu has a white background by default so font shouldn't be white when clicked open
+                                color: black;
+                            }
+                            & .navleft img {
+                                background: url('${logo}') 0 40;
+                            }
+                        }
+                        & .navleft img {
+                            margin-top: 3px;
+                            background: url('${logo}') 0 0;
+                            height: 40px;
+                            width: 40px;
                         }
                     `}>
                         <Navchunk className="navleft" css={css`
                         `}>
                             <Link to="/" exact>
-                                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                    css={css`
-                                        height: 40px;
-                                        width: 40px;
-                                        background: url('${logo}') 0 0;
-                                    `} 
-                                />
+                                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
+                                <span css={css`
+                                    height: 100%;
+                                    padding: 10px 0 15px 10px;
+                                `}>
+                                    &gt; Digital Newberry
+                                </span>
                             </Link>
                         </Navchunk>
                         <Navchunk className="navmid" css={css`
@@ -115,7 +135,7 @@ export default class Navbar extends React.Component {
                             font-size: 2rem;
                             font-family: 'Libre Baskerville', serif;
                         `}>
-                             <Link to="/" exact>Mapping the Midwest</Link>
+                             {/* <Link to="/" exact>Mapping the Midwest</Link> */}
                             {/* {this.props.match.path === '/' ? <Link to="/" exact>Mapping the Midwest</Link> : '' } */}
                         </Navchunk>
                         <Navchunk className="navright" css={css`

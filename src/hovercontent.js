@@ -19,12 +19,12 @@ export default function (props) {
         dp: dp
     }
     var bgImage = images[props.img]
-    const bgcolor = props.content === '' ?  'rgba(0,0,0,0)' : 'rgba(0,0,0,0.65)'
+    const display = props.content === '' ?  'none' : 'flex'
     const Hoverdiv = styled.div`
         // box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12) !important;
         box-shadow: 0px 6px 6px -3px rgba(0, 0, 0, 0.2), 0px 10px 14px 1px rgba(0, 0, 0, 0.14), 0px 4px 18px 3px rgba(0, 0, 0, 0.12) !important;
         border-radius: 4px;
-        background-color: ${bgcolor};
+        background-color: rgba(0,0,0,0.65);
         // position: fixed;
         // right: 50%;
         // top: 50%;
@@ -38,7 +38,7 @@ export default function (props) {
         & a {
             color: white;
         }
-        display: flex;
+        display: ${display};
         flex-direction: column;
         & .cardsubtext {
             font-family: 'Lato', sans-serif;

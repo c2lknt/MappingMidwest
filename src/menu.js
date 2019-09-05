@@ -10,7 +10,7 @@ export default class Menu extends React.Component {
         const hoverstuff = <Hovercontent img={i[0]} text={i[1]} />
         this.props.callbackFromParent(hoverstuff);
     }
-    mouseLeave(i) {
+    mouseLeave() {
         this.props.callbackFromParent('');
     }
     render() {
@@ -26,13 +26,13 @@ export default class Menu extends React.Component {
             <ul css={css`
                 display: flex;
                 width: 80%;
-                border-top: 1px solid rgba(0,0,0,0.5);
+                border-top: 1px solid rgba(0,0,0,0.65);
                 list-style-type: none;
                 padding: 0;
                 margin: 15px auto;
             `}>
                 {menuContent.map((item, index) =>
-                    <li key={index} href={item[0]} onMouseEnter={() => this.mouseEnter(item)} onMouseLeave={() => this.mouseLeave(index)} 
+                    <li key={index} href={item[0]} onMouseEnter={() => this.mouseEnter(item)} onMouseLeave={() => this.mouseLeave()} 
                     css={css`
                         padding: 15px 5px 5px 5px;
                         display: inline-block;
@@ -46,7 +46,10 @@ export default class Menu extends React.Component {
                         text-transform: uppercase;
                         font-family: 'Lato', sans-serif;
                             &:hover {
-                                background: rgba(0,0,0,0.25);
+                                background: rgba(0,0,0,0.65);
+                                & a {
+                                    color: white;
+                                }
                             }
                             & a {
                                 color: black;
@@ -54,7 +57,7 @@ export default class Menu extends React.Component {
                         }
                     `}
                         >
-                        { this.props.page === 'mm' ? <Link to={`/mm/${item[0]}`}>{item[1]}</Link> : <a href={item[0]}>{item[1]}</a>}
+                        <Link to={`/${item[0]}`}>{item[1]}</Link>
                     </li>
                 )}
 

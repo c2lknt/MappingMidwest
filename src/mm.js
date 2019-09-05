@@ -6,6 +6,7 @@ import styled from "@emotion/styled";
 
 const Corecontent  = styled.div`
     border-radius: 4px;
+    border: 2px solid white;
     box-shadow: 0px 6px 6px -3px rgba(0, 0, 0, 0.2), 0px 10px 14px 1px rgba(0, 0, 0, 0.14), 0px 4px 18px 3px rgba(0, 0, 0, 0.12) !important;
     text-align: left;
     background-color: rgba(0,0,0,0.65);
@@ -48,16 +49,17 @@ export default class ContentPage extends React.Component {
                 <div>
                     <Title>Mapping the Midwest</Title>
                 </div>
-                <Menu page={this.props.page} callbackFromParent={this.myCallback} />
+                {/* <Menu page={this.props.page} callbackFromParent={this.myCallback} /> */}
+                <Menu callbackFromParent={this.myCallback} />
                 <Main>
-                <Corecontent>
-                    <h2>Need a sub title here.</h2>
-                    <p>Although regions are often determined by boundaries, consider how networks have influenced the distinct history of the Midwest. Waterways and transportation routes connected the interior to broader trade networks and markets for centuries. More recently, the movement of people and resources shaped the evolution of agricultural, extractive, and tourist industries in the Midwest. Navigate the maps below to explore how networks define the region.</p>
-                    <p>Choose a section below and then use arrows to progress through each story map. Click pictures to view them with a magnifying glass; click a second time to open the full image in another tab.</p>
-                    <p>The Newberry Library is located on Indigenous homelands. The Potawatomi, Odawa, Sauk, Ojibwe, Illinois, Kickapoo, Miami, and others resided and traded along Lake Michigan\'s shoreline into the nineteenth century. The Newberry honors and respects Chicago's diverse American Indian community.</p>
-                </Corecontent>
+                    <Corecontent>
+                        <h2>Need a sub title here.</h2>
+                        <p>Although regions are often determined by boundaries, consider how networks have influenced the distinct history of the Midwest. Waterways and transportation routes connected the interior to broader trade networks and markets for centuries. More recently, the movement of people and resources shaped the evolution of agricultural, extractive, and tourist industries in the Midwest. Navigate the maps below to explore how networks define the region.</p>
+                        <p>Choose a section below and then use arrows to progress through each story map. Click pictures to view them with a magnifying glass; click a second time to open the full image in another tab.</p>
+                        <p>The Newberry Library is located on Indigenous homelands. The Potawatomi, Odawa, Sauk, Ojibwe, Illinois, Kickapoo, Miami, and others resided and traded along Lake Michigan\'s shoreline into the nineteenth century. The Newberry honors and respects Chicago's diverse American Indian community.</p>
+                    </Corecontent>
                     <Hovercontainer>
-                        <Hovercontent content={this.state.hoverstuff} />
+                        {this.state.hoverstuff}
                     </Hovercontainer>
                 </Main>
             </div>
